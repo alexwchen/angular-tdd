@@ -18,3 +18,23 @@ gulp.task('serve',function(){
   glup.watch(['app/**/*.*'])
     .on('change',browserSync.reaload);
 });
+
+
+
+gulp.task('serve-test',function(){
+  // server
+  browserSync.init({
+    notify:false,
+    port:8081,
+    server:{
+      baseDir:['test','app'],
+      routes:{
+        '/bower_components':'bower_components'
+      }
+    }
+  })
+
+  // relaod after file change
+  glup.watch(['app/**/*.*'])
+    .on('change',browserSync.reaload);
+});
