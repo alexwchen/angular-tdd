@@ -2,6 +2,37 @@
     <script src="bower_components/angular/angular.js"></script>
 </head>
 <body ng-app="AddressBook">
+
+  <div class="app-title">
+  	<h1>
+  		Contactical
+  	</h1>
+  	<h2>
+  	    The Ironclad Address Book
+  	</h2>
+  </div>
+
+  <div ng-controller=ContactController class="contact-list inline-module">
+		<div ng-repeat='contact in contacts'>
+      <h4>
+        <span class=contact-name>
+                <!-- {{contact.name | proper}} -->
+                {{contact.name}}
+        </span>
+        <avatar name=contact.name></avatar>
+      </h4>
+      <p>
+        {{contact.occupation}}
+      </p>
+      <p>
+        <a href="mailto:{{contact.email}}">
+            {{contact.email}}
+        </a>
+      </p>
+		</div>
+	</div>
+
+
   Hello
   <script src="main.js"></script>
 </body>

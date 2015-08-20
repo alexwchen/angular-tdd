@@ -23,7 +23,7 @@ gulp.task('serve',['server'],function(){
   })
 
   // relaod after file change
-  glup.watch(['app/**/*.*'])
+  gulp.watch(['app/**/*.*'])
     .on('change',browserSync.reaload);
 });
 
