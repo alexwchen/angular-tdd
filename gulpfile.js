@@ -1,8 +1,15 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var karma = require('karma').server;
+var server = require('gulp-live-server');
 
-gulp.task('serve',function(){
+// express
+gulp.task('server', function(){
+  var live = new server('server.js');
+  live.start();
+})
+
+gulp.task('serve',['server'],function(){
   // server
   browserSync.init({
     notify:false,
@@ -20,6 +27,7 @@ gulp.task('serve',function(){
     .on('change',browserSync.reaload);
 });
 
+// karma
 gulp.task('test-browser', function(){
   karma.start({
     configFile: __dirname + '/karma.conf.js',
@@ -28,7 +36,7 @@ gulp.task('test-browser', function(){
   })
 })
 
-
+// mocha test
 gulp.task('serve-test',function(){
   // server
   browserSync.init({
