@@ -89,5 +89,22 @@ describe("The Address Book App", function(){
     })
   })
 
+  // this is slightly harder than all others (can watch the tutorial again when needed)
+  describe("avatar",function(){
+		beforeEach(function(){
+			module("AddressBook");
+		})
+
+		it ("should display the capitalized first letter of a name",function(){
+			inject(function($rootScope,$compile){
+			  $rootScope.contact = {name:'jon arryn'}; // dummy data
+				var element = $compile('<avatar name=contact.name/>')($rootScope); // simulate our directie
+				$rootScope.$digest(); // process the directive so it is display what it should
+				var dirText = element.text(); // get our result
+				expect(dirText).to.equal("J"); // match it (you can use a forloop to test all of it)
+			})
+		})
+	})
+
 
 })
